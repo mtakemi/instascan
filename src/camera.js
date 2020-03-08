@@ -4,10 +4,11 @@ function cameraName(label) {
 }
 
 class Camera {
-  constructor(id, name) {
+  constructor(id, name, overwriteOpts = {}) {
     this.id = id;
     this.name = name;
     this._stream = null;
+    this.overwriteOpts = overwriteOpts;
   }
 
   async start() {
@@ -23,6 +24,7 @@ class Camera {
         optional: []
       }
     };
+    Object.assign(constraints, this.overwriteOpts);
 
     this._stream = await navigator.mediaDevices.getUserMedia(constraints);
     return this._stream;
@@ -40,12 +42,12 @@ class Camera {
     this._stream = null;
   }
 
-  static async getCameras() {
+  static async getCameras(overwriteOpts = {}) {
     var devices = await navigator.mediaDevices.enumerateDevices();
 
     return devices
       .filter(d => d.kind === 'videoinput')
-      .map(d => new Camera(d.deviceId, cameraName(d.label)));
+      .map(d => new Camera(d.deviceId, cameraName(d.label), overwriteOpts));
   }
 }
 
