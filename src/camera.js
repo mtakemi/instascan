@@ -24,7 +24,7 @@ class Camera {
         optional: []
       }
     };
-    Object.assign(constraints, this.overwriteOpts);
+    _.merge(constraints, this.overwriteOpts);
 
     this._stream = await navigator.mediaDevices.getUserMedia(constraints);
     return this._stream;

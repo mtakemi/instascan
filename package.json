@@ -1,5 +1,5 @@
 {
-  "name": "@mathewparet/instascan",
+  "name": "@mtakemi/instascan",
   "version": "1.0.4",
   "description": "Webcam-driven QR code scanner.",
   "main": "index.js",
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mathewparet/instascan.git"
+    "url": "git+https://github.com/mtakemi/instascan.git"
   },
   "keywords": [
     "qr",
@@ -45,6 +45,7 @@
   "dependencies": {
     "babel-polyfill": "^6.9.1",
     "fsm-as-promised": "^0.13.0",
+    "underscore": "^1.9.2",
     "visibilityjs": "^1.2.3",
     "webrtc-adapter": "^1.4.0"
   }
